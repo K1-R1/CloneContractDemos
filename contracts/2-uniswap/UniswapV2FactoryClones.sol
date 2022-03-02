@@ -14,6 +14,7 @@ contract UniswapV2FactoryClones is IUniswapV2Factory {
     mapping(address => mapping(address => address)) public override getPair;
     address[] public override allPairs;
 
+    /// Changed for clone; added: address _uniswapV2PairImplementation
     constructor(address _uniswapV2PairImplementation, address _feeToSetter)
         public
     {
@@ -40,6 +41,7 @@ contract UniswapV2FactoryClones is IUniswapV2Factory {
             "UniswapV2: PAIR_EXISTS"
         ); // single check is sufficient
         bytes32 salt = keccak256(abi.encodePacked(token0, token1));
+        /// Changed for clone;
         pair = Clones.cloneDeterministic(uniswapV2PairImplementation, salt);
         IUniswapV2Pair(pair).initialize(token0, token1);
         getPair[token0][token1] = pair;
