@@ -119,6 +119,7 @@ contract WalletFactoryClones is ManagedV2 {
             _guardian,
             _version
         );
+        /// Changed for clone:
         address payable wallet = payable(
             Clones.cloneDeterministic(walletImplementation, newsalt)
         );
@@ -178,6 +179,7 @@ contract WalletFactoryClones is ManagedV2 {
             _guardian,
             _version
         );
+        /// Changed for clone:
         _wallet = Clones.predictDeterministicAddress(
             walletImplementation,
             newsalt
