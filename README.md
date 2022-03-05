@@ -1,5 +1,6 @@
 # CloneContractDemos
 
+
 This repo demos usage of Openzeppelin's clone library in order to improve the deployment of factory smart contracts in certain conditions. Clones, as described in [ERC1167](https://eips.ethereum.org/EIPS/eip-1167), are very small, and cheap to deploy, smart-contract that delegates all incoming calls to a master functionality contract. The address of this master contract being stored directly in the contract code, no `sload` is required.
 
 The gas report produced by the tests shows the gas savings one can expect from using clones.
